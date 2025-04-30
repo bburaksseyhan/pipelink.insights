@@ -2,41 +2,40 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Pipelink.Insights</id>
-    <version>1.0.0</version>
+    <version>1.0.5</version>
     <authors>Pipelink</authors>
     <owners>Pipelink</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">MIT</license>
-    <icon>images/pipelink-insights.png</icon>
     <projectUrl>https://github.com/seyhanb/pipelink.insights</projectUrl>
-    <description>A .NET library that facilitates OpenTelemetry integration for monitoring application performance, errors, and behavior.</description>
-    <releaseNotes>Initial release with OpenTelemetry integration support</releaseNotes>
-    <copyright>Copyright 2024</copyright>
-    <tags>opentelemetry monitoring tracing instrumentation aspnetcore efcore redis sqlserver</tags>
+    <description>A .NET library for implementing OpenTelemetry integration in .NET applications. This package provides a reliable way to handle telemetry data in distributed systems.</description>
+    <releaseNotes>Updated core OpenTelemetry packages to version 1.11.2, OpenTelemetry.Instrumentation.AspNetCore and OpenTelemetry.Instrumentation.Http to version 1.11.1. Updated Microsoft.Extensions.DependencyInjection to 9.0.0. StackExchangeRedis and SqlClient instrumentation remain at rc9.14. This update includes various bug fixes and performance improvements across all components.</releaseNotes>
+    <copyright>Copyright © 2024</copyright>
+    <tags>OpenTelemetry Telemetry Monitoring Distributed-Systems Tracing</tags>
+    <repository type="git" url="https://github.com/seyhanb/pipelink.insights" branch="main" />
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="Microsoft.Extensions.DependencyInjection" version="8.0.0" />
-        <dependency id="OpenTelemetry" version="1.8.1" />
-        <dependency id="OpenTelemetry.Api" version="1.8.1" />
-        <dependency id="OpenTelemetry.Extensions.Hosting" version="1.8.1" />
-        <dependency id="OpenTelemetry.Instrumentation.AspNetCore" version="1.8.1" />
-        <dependency id="OpenTelemetry.Instrumentation.EntityFrameworkCore" version="1.0.0-beta.10" />
-        <dependency id="OpenTelemetry.Instrumentation.Http" version="1.8.1" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="9.0.0" />
+        <dependency id="OpenTelemetry" version="1.11.2" />
+        <dependency id="OpenTelemetry.Api" version="1.11.2" />
+        <dependency id="OpenTelemetry.Extensions.Hosting" version="1.11.2" />
+        <dependency id="OpenTelemetry.Instrumentation.AspNetCore" version="1.11.1" />
+        <dependency id="OpenTelemetry.Instrumentation.EntityFrameworkCore" version="1.0.0-beta.7" />
+        <dependency id="OpenTelemetry.Instrumentation.Http" version="1.11.1" />
         <dependency id="OpenTelemetry.Instrumentation.StackExchangeRedis" version="1.0.0-rc9.14" />
         <dependency id="OpenTelemetry.Instrumentation.SqlClient" version="1.0.0-rc9.14" />
-        <dependency id="OpenTelemetry.Exporter.OpenTelemetryProtocol" version="1.8.1" />
+        <dependency id="OpenTelemetry.Exporter.OpenTelemetryProtocol" version="1.11.2" />
       </group>
     </dependencies>
-    <frameworkReferences>
-      <group targetFramework="net8.0">
-        <frameworkReference name="Microsoft.AspNetCore.App" />
-      </group>
-    </frameworkReferences>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </metadata>
   <files>
-    <file src="bin\Release\net8.0\Pipelink.Insights.dll" target="lib\net8.0" />
-    <file src="bin\Release\net8.0\Pipelink.Insights.pdb" target="lib\net8.0" />
-    <file src="bin\Release\net8.0\Pipelink.Insights.xml" target="lib\net8.0" />
-    <file src="pipelink-insights.png" target="images" />
+    <file src="bin/Release/net8.0/Pipelink.Insights.dll" target="lib/net8.0" />
+    <file src="bin/Release/net8.0/Pipelink.Insights.pdb" target="lib/net8.0" />
+    <file src="bin/Release/net8.0/Pipelink.Insights.xml" target="lib/net8.0" />
+    <file src="pipelink-telemetry.png" target="pipelink-telemetry.png" />
+    <file src="README.md" target="/" />
+    <file src="LICENSE" target="/" />
   </files>
 </package> 

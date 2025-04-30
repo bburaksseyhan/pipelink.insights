@@ -1,29 +1,29 @@
 # Pipelink.Insights
 
-Pipelink.Insights, .NET uygulamalarınızda OpenTelemetry entegrasyonunu kolaylaştıran bir kütüphanedir. Uygulama performansını, hataları ve davranışları izlemenizi sağlar.
+Pipelink.Insights is a library that facilitates OpenTelemetry integration in your .NET applications. It enables you to monitor application performance, errors, and behaviors.
 
-## Özellikler
+## Features
 
-- ASP.NET Core request/response izleme
-- HTTP Client istek takibi
-- Entity Framework Core sorgu izleme
-- Redis operasyon takibi
-- SQL Server sorgu izleme
-- Özelleştirilebilir izleme yapılandırması
-- OpenTelemetry Collector entegrasyonu
-- Doğrudan OpenTelemetry yapılandırması desteği
+- ASP.NET Core request/response monitoring
+- HTTP Client request tracking
+- Entity Framework Core query monitoring
+- Redis operation tracking
+- SQL Server query monitoring
+- Customizable monitoring configuration
+- OpenTelemetry Collector integration
+- Direct OpenTelemetry configuration support
 
-## Kurulum
+## Installation
 
-NuGet paketini projenize ekleyin:
+Add the NuGet package to your project:
 
 ```bash
 dotnet add package Pipelink.Insights
 ```
 
-## Kullanım
+## Usage
 
-### 1. Standart ASP.NET Core Kullanımı
+### 1. Standard ASP.NET Core Usage
 
 ```csharp
 services.AddPipelinkOpenTelemetry(options =>
@@ -32,26 +32,26 @@ services.AddPipelinkOpenTelemetry(options =>
     options.ServiceVersion = "1.0.0";
     options.Endpoint = "http://localhost:4317";
     
-    // ASP.NET Core izleme
+    // ASP.NET Core monitoring
     options.EnableAspNetCoreInstrumentation = true;
     
-    // HTTP Client izleme
+    // HTTP Client monitoring
     options.HttpClientInstrumentation.Enabled = true;
     options.HttpClientInstrumentation.ExcludedUrls = new[] { "health", "metrics" };
     options.HttpClientInstrumentation.RecordException = true;
     
-    // Entity Framework Core izleme
+    // Entity Framework Core monitoring
     options.EnableEntityFrameworkCoreInstrumentation = true;
     
-    // Redis izleme
+    // Redis monitoring
     options.EnableRedisInstrumentation = true;
     
-    // SQL Server izleme
+    // SQL Server monitoring
     options.EnableSqlClientInstrumentation = true;
 });
 ```
 
-### 2. Doğrudan OpenTelemetry TracerProviderBuilder ile Kullanım
+### 2. Usage with Direct OpenTelemetry TracerProviderBuilder
 
 ```csharp
 var options = new OpenTelemetryOptions
@@ -71,16 +71,16 @@ var options = new OpenTelemetryOptions
 builder.ConfigurePipelinkOpenTelemetry(options);
 ```
 
-### 3. Özel OpenTelemetry Yapılandırması ile Kullanım
+### 3. Usage with Custom OpenTelemetry Configuration
 
 ```csharp
 services.AddOpenTelemetry()
     .WithTracing(builder =>
     {
-        // Özel yapılandırmalar
+        // Custom configurations
         builder.AddSource("MySource");
         
-        // Pipelink.Insights yapılandırması
+        // Pipelink.Insights configuration
         var options = new OpenTelemetryOptions
         {
             ServiceName = "MyService",
@@ -89,29 +89,29 @@ services.AddOpenTelemetry()
         };
         builder.ConfigurePipelinkOpenTelemetry(options);
         
-        // Ek yapılandırmalar
+        // Additional configurations
         builder.AddProcessor(new MyCustomProcessor());
     });
 ```
 
-## Yapılandırma Seçenekleri
+## Configuration Options
 
-| Özellik | Açıklama | Varsayılan Değer |
-|---------|-----------|------------------|
-| ServiceName | İzlenen servisin adı | - |
-| ServiceVersion | Servis versiyonu | "1.0.0" |
-| Endpoint | OpenTelemetry Collector endpoint'i | "http://localhost:4317" |
-| EnableAspNetCoreInstrumentation | ASP.NET Core izleme | true |
-| HttpClientInstrumentation.Enabled | HTTP Client izleme | true |
-| HttpClientInstrumentation.ExcludedUrls | İzlenmeyecek URL'ler | [] |
-| HttpClientInstrumentation.RecordException | HTTP hatalarını kaydet | true |
-| EnableEntityFrameworkCoreInstrumentation | EF Core izleme | false |
-| EnableRedisInstrumentation | Redis izleme | false |
-| EnableSqlClientInstrumentation | SQL Server izleme | false |
+| Property | Description | Default Value |
+|----------|-------------|---------------|
+| ServiceName | Name of the monitored service | - |
+| ServiceVersion | Service version | "1.0.0" |
+| Endpoint | OpenTelemetry Collector endpoint | "http://localhost:4317" |
+| EnableAspNetCoreInstrumentation | ASP.NET Core monitoring | true |
+| HttpClientInstrumentation.Enabled | HTTP Client monitoring | true |
+| HttpClientInstrumentation.ExcludedUrls | URLs to exclude from monitoring | [] |
+| HttpClientInstrumentation.RecordException | Record HTTP errors | true |
+| EnableEntityFrameworkCoreInstrumentation | EF Core monitoring | false |
+| EnableRedisInstrumentation | Redis monitoring | false |
+| EnableSqlClientInstrumentation | SQL Server monitoring | false |
 
-## Docker Compose Örneği
+## Docker Compose Example
 
-OpenTelemetry Collector ve Jaeger'ı başlatmak için:
+To start OpenTelemetry Collector and Jaeger:
 
 ```yaml
 version: '3'
@@ -131,7 +131,7 @@ services:
       - "16686:16686"
 ```
 
-OpenTelemetry Collector yapılandırması (`otel-collector-config.yaml`):
+OpenTelemetry Collector configuration (`otel-collector-config.yaml`):
 
 ```yaml
 receivers:
@@ -161,47 +161,47 @@ service:
       exporters: [jaeger]
 ```
 
-## Test Projesi
+## Test Project
 
-API projesi ile test etmek için:
+To test with the API project:
 
-1. Projeyi klonlayın:
+1. Clone the project:
 ```bash
 git clone https://github.com/yourusername/pipelink.insights.git
 cd pipelink.insights
 ```
 
-2. Docker Compose ile gerekli servisleri başlatın:
+2. Start required services with Docker Compose:
 ```bash
 docker-compose up -d
 ```
 
-3. API projesini çalıştırın:
+3. Run the API project:
 ```bash
 cd Pipelink.Insights.Api
 dotnet run
 ```
 
-4. Test endpointlerini çağırın:
+4. Call test endpoints:
 ```bash
-# HTTP Client testi
+# HTTP Client test
 curl http://localhost:5000/api/test/http
 
-# Entity Framework Core testi
+# Entity Framework Core test
 curl http://localhost:5000/api/test/ef
 
-# Redis testi
+# Redis test
 curl http://localhost:5000/api/test/redis
 
-# SQL Server testi
+# SQL Server test
 curl http://localhost:5000/api/test/sql
 ```
 
-5. Jaeger UI'da izlemeleri görüntüleyin:
+5. View traces in Jaeger UI:
 ```
 http://localhost:16686
 ```
 
-## Lisans
+## License
 
 MIT License 

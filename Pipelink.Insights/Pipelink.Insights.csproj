@@ -5,26 +5,41 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.0</Version>
+    <Version>1.0.5</Version>
     <Authors>Pipelink</Authors>
     <Company>Pipelink</Company>
-    <Description>Pipelink Insights Library</Description>
+    <Description>A .NET library for implementing OpenTelemetry integration in .NET applications. This package provides a reliable way to handle telemetry data in distributed systems.</Description>
     <PackageId>Pipelink.Insights</PackageId>
+    <PackageIcon>pipelink-telemetry.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ProjectUrl>https://github.com/seyhanb/pipelink.insights</ProjectUrl>
     <RepositoryUrl>https://github.com/seyhanb/pipelink.insights</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>main</RepositoryBranch>
+    <PackageTags>OpenTelemetry Telemetry Monitoring Distributed-Systems Tracing</PackageTags>
+    <PackageReleaseNotes>Updated core OpenTelemetry packages to version 1.11.2, OpenTelemetry.Instrumentation.AspNetCore and OpenTelemetry.Instrumentation.Http to version 1.11.1. Updated Microsoft.Extensions.DependencyInjection to 9.0.0. StackExchangeRedis and SqlClient instrumentation remain at rc9.14. This update includes various bug fixes and performance improvements across all components.</PackageReleaseNotes>
+    <Copyright>Copyright © 2024</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="OpenTelemetry" Version="1.8.1" />
-    <PackageReference Include="OpenTelemetry.Api" Version="1.8.1" />
-    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.8.1" />
-    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.8.1" />
-    <PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta.10" />
-    <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.8.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="OpenTelemetry" Version="1.11.2" />
+    <PackageReference Include="OpenTelemetry.Api" Version="1.11.2" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.11.2" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.11.1" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta.7" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.11.1" />
     <PackageReference Include="OpenTelemetry.Instrumentation.StackExchangeRedis" Version="1.0.0-rc9.14" />
     <PackageReference Include="OpenTelemetry.Instrumentation.SqlClient" Version="1.0.0-rc9.14" />
-    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.8.1" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.11.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="pipelink-telemetry.png" Pack="true" PackagePath="pipelink-telemetry.png"/>
+    <None Include="README.md" Pack="true" PackagePath="/"/>
+    <None Include="LICENSE" Pack="true" PackagePath="/"/>
   </ItemGroup>
 
 </Project>
+

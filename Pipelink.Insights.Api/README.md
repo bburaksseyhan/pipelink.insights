@@ -1,71 +1,71 @@
 # Pipelink.Insights.Api
 
-Pipelink.Insights.Api, OpenTelemetry entegrasyonunu test etmek ve göstermek için oluşturulmuş bir örnek API projesidir.
+Pipelink.Insights.Api is a sample API project created to test and demonstrate OpenTelemetry integration.
 
-## Özellikler
+## Features
 
 - ASP.NET Core Web API
-- OpenTelemetry entegrasyonu
-- HTTP Client örnekleri
-- Entity Framework Core örnekleri
-- Redis örnekleri
-- SQL Server örnekleri
-- Swagger/OpenAPI desteği
+- OpenTelemetry integration
+- HTTP Client examples
+- Entity Framework Core examples
+- Redis examples
+- SQL Server examples
+- Swagger/OpenAPI support
 
-## Gereksinimler
+## Requirements
 
 - .NET 8.0 SDK
-- Docker ve Docker Compose
-- SQL Server (Docker ile sağlanabilir)
-- Redis (Docker ile sağlanabilir)
+- Docker and Docker Compose
+- SQL Server (can be provided via Docker)
+- Redis (can be provided via Docker)
 
-## Kurulum
+## Installation
 
-1. Projeyi klonlayın:
+1. Clone the project:
 ```bash
 git clone https://github.com/yourusername/pipelink.insights.git
 cd pipelink.insights
 ```
 
-2. Docker Compose ile gerekli servisleri başlatın:
+2. Start required services with Docker Compose:
 ```bash
 docker-compose up -d
 ```
 
-3. API projesini çalıştırın:
+3. Run the API project:
 ```bash
 cd Pipelink.Insights.Api
 dotnet run
 ```
 
-## API Endpointleri
+## API Endpoints
 
-### HTTP Client Testleri
+### HTTP Client Tests
 
-- `GET /api/test/http` - Basit HTTP isteği
-- `GET /api/test/http/error` - Hata durumu testi
-- `GET /api/test/http/timeout` - Timeout durumu testi
+- `GET /api/test/http` - Simple HTTP request
+- `GET /api/test/http/error` - Error state test
+- `GET /api/test/http/timeout` - Timeout state test
 
-### Entity Framework Core Testleri
+### Entity Framework Core Tests
 
-- `GET /api/test/ef` - Basit EF Core sorgusu
-- `GET /api/test/ef/complex` - Karmaşık EF Core sorgusu
-- `GET /api/test/ef/error` - EF Core hata durumu
+- `GET /api/test/ef` - Simple EF Core query
+- `GET /api/test/ef/complex` - Complex EF Core query
+- `GET /api/test/ef/error` - EF Core error state
 
-### Redis Testleri
+### Redis Tests
 
-- `GET /api/test/redis` - Basit Redis operasyonu
-- `GET /api/test/redis/error` - Redis hata durumu
+- `GET /api/test/redis` - Simple Redis operation
+- `GET /api/test/redis/error` - Redis error state
 
-### SQL Server Testleri
+### SQL Server Tests
 
-- `GET /api/test/sql` - Basit SQL sorgusu
-- `GET /api/test/sql/complex` - Karmaşık SQL sorgusu
-- `GET /api/test/sql/error` - SQL hata durumu
+- `GET /api/test/sql` - Simple SQL query
+- `GET /api/test/sql/complex` - Complex SQL query
+- `GET /api/test/sql/error` - SQL error state
 
-## OpenTelemetry Konfigürasyonu
+## OpenTelemetry Configuration
 
-API projesi, Pipelink.Insights kütüphanesini kullanarak OpenTelemetry entegrasyonunu yapılandırır:
+The API project configures OpenTelemetry integration using the Pipelink.Insights library:
 
 ```csharp
 services.AddPipelinkOpenTelemetry(options =>
@@ -74,29 +74,29 @@ services.AddPipelinkOpenTelemetry(options =>
     options.ServiceVersion = "1.0.0";
     options.Endpoint = "http://localhost:4317";
     
-    // Tüm izleme özelliklerini etkinleştir
+    // Enable all monitoring features
     options.EnableAspNetCoreInstrumentation = true;
     options.EnableEntityFrameworkCoreInstrumentation = true;
     options.EnableRedisInstrumentation = true;
     options.EnableSqlClientInstrumentation = true;
     
-    // HTTP Client izleme ayarları
+    // HTTP Client monitoring settings
     options.HttpClientInstrumentation.Enabled = true;
     options.HttpClientInstrumentation.ExcludedUrls = new[] { "health", "metrics" };
     options.HttpClientInstrumentation.RecordException = true;
 });
 ```
 
-## Docker Compose Yapılandırması
+## Docker Compose Configuration
 
-Proje, aşağıdaki servisleri içeren bir Docker Compose yapılandırması ile gelir:
+The project comes with a Docker Compose configuration that includes the following services:
 
 - OpenTelemetry Collector
-- Jaeger (Trace görselleştirme)
+- Jaeger (Trace visualization)
 - SQL Server
 - Redis
 
-Docker Compose dosyası (`docker-compose.yml`):
+Docker Compose file (`docker-compose.yml`):
 
 ```yaml
 version: '3'
@@ -129,39 +129,39 @@ services:
       - "6379:6379"
 ```
 
-## Test Senaryoları
+## Test Scenarios
 
-### 1. HTTP Client Testi
+### 1. HTTP Client Test
 
 ```bash
 curl http://localhost:5000/api/test/http
 ```
 
-### 2. Entity Framework Core Testi
+### 2. Entity Framework Core Test
 
 ```bash
 curl http://localhost:5000/api/test/ef
 ```
 
-### 3. Redis Testi
+### 3. Redis Test
 
 ```bash
 curl http://localhost:5000/api/test/redis
 ```
 
-### 4. SQL Server Testi
+### 4. SQL Server Test
 
 ```bash
 curl http://localhost:5000/api/test/sql
 ```
 
-## İzleme Görselleştirme
+## Trace Visualization
 
-Jaeger UI'ına erişmek için:
+To access Jaeger UI:
 ```
 http://localhost:16686
 ```
 
-## Lisans
+## License
 
 MIT License 

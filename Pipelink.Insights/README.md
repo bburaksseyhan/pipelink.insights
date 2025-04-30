@@ -1,32 +1,32 @@
 # Pipelink.Insights
 
-Pipelink.Insights, .NET uygulamalarınız için OpenTelemetry entegrasyonunu kolaylaştıran bir kütüphanedir. Bu kütüphane, uygulamanızın performansını, hatalarını ve davranışını izlemenizi sağlar.
+Pipelink.Insights is a library that facilitates OpenTelemetry integration for your .NET applications. This library enables you to monitor your application's performance, errors, and behavior.
 
-## Özellikler
+## Features
 
-- ASP.NET Core request/response izleme
-- HTTP Client isteklerinin izlenmesi
-- Entity Framework Core sorgu izleme
-- Redis operasyonlarının izlenmesi
-- SQL Server sorgu izleme
-- Özelleştirilebilir izleme konfigürasyonu
-- OpenTelemetry Collector entegrasyonu
+- ASP.NET Core request/response monitoring
+- HTTP Client request monitoring
+- Entity Framework Core query monitoring
+- Redis operation monitoring
+- SQL Server query monitoring
+- Customizable monitoring configuration
+- OpenTelemetry Collector integration
 
-## Kurulum
+## Installation
 
 ```bash
 dotnet add package Pipelink.Insights
 ```
 
-## Kullanım
+## Usage
 
-### Temel Kullanım
+### Basic Usage
 
 ```csharp
 services.AddPipelinkOpenTelemetry("MyService");
 ```
 
-### Gelişmiş Konfigürasyon
+### Advanced Configuration
 
 ```csharp
 services.AddPipelinkOpenTelemetry(options =>
@@ -35,26 +35,26 @@ services.AddPipelinkOpenTelemetry(options =>
     options.ServiceVersion = "1.0.0";
     options.Endpoint = "http://localhost:4317";
     
-    // ASP.NET Core izleme
+    // ASP.NET Core monitoring
     options.EnableAspNetCoreInstrumentation = true;
     
-    // HTTP Client izleme
+    // HTTP Client monitoring
     options.HttpClientInstrumentation.Enabled = true;
     options.HttpClientInstrumentation.ExcludedUrls = new[] { "health", "metrics" };
     options.HttpClientInstrumentation.RecordException = true;
     
-    // Entity Framework Core izleme
+    // Entity Framework Core monitoring
     options.EnableEntityFrameworkCoreInstrumentation = true;
     
-    // Redis izleme
+    // Redis monitoring
     options.EnableRedisInstrumentation = true;
     
-    // SQL Server izleme
+    // SQL Server monitoring
     options.EnableSqlClientInstrumentation = true;
 });
 ```
 
-### Basitleştirilmiş Konfigürasyon
+### Simplified Configuration
 
 ```csharp
 services.AddPipelinkOpenTelemetry(
@@ -71,29 +71,29 @@ services.AddPipelinkOpenTelemetry(
 );
 ```
 
-## Konfigürasyon Seçenekleri
+## Configuration Options
 
 ### OpenTelemetryOptions
 
-| Özellik | Açıklama | Varsayılan |
-|---------|-----------|------------|
-| ServiceName | Servis adı | - |
-| ServiceVersion | Servis versiyonu | "1.0.0" |
-| Endpoint | OpenTelemetry Collector endpoint'i | "http://localhost:4317" |
-| EnableAspNetCoreInstrumentation | ASP.NET Core izleme | true |
-| EnableEntityFrameworkCoreInstrumentation | EF Core izleme | false |
-| EnableRedisInstrumentation | Redis izleme | false |
-| EnableSqlClientInstrumentation | SQL Server izleme | false |
+| Property | Description | Default |
+|----------|-------------|---------|
+| ServiceName | Service name | - |
+| ServiceVersion | Service version | "1.0.0" |
+| Endpoint | OpenTelemetry Collector endpoint | "http://localhost:4317" |
+| EnableAspNetCoreInstrumentation | ASP.NET Core monitoring | true |
+| EnableEntityFrameworkCoreInstrumentation | EF Core monitoring | false |
+| EnableRedisInstrumentation | Redis monitoring | false |
+| EnableSqlClientInstrumentation | SQL Server monitoring | false |
 
 ### HttpClientInstrumentationOptions
 
-| Özellik | Açıklama | Varsayılan |
-|---------|-----------|------------|
-| Enabled | HTTP Client izleme aktif/pasif | true |
-| ExcludedUrls | İzlenmeyecek URL'ler | [] |
-| RecordException | HTTP hatalarını izle | true |
+| Property | Description | Default |
+|----------|-------------|---------|
+| Enabled | HTTP Client monitoring enabled/disabled | true |
+| ExcludedUrls | URLs to exclude from monitoring | [] |
+| RecordException | Monitor HTTP errors | true |
 
-## Docker Compose ile OpenTelemetry Collector
+## OpenTelemetry Collector with Docker Compose
 
 ```yaml
 version: '3'
@@ -118,7 +118,7 @@ services:
       - "14250:14250" # Model
 ```
 
-## OpenTelemetry Collector Konfigürasyonu
+## OpenTelemetry Collector Configuration
 
 ```yaml
 receivers:
@@ -148,6 +148,6 @@ service:
       exporters: [jaeger]
 ```
 
-## Lisans
+## License
 
 MIT License 

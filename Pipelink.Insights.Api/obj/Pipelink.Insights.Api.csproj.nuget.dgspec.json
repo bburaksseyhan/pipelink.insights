@@ -96,7 +96,7 @@
       }
     },
     "/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/Pipelink.Insights.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.5",
       "restore": {
         "projectUniqueName": "/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/Pipelink.Insights.csproj",
         "projectName": "Pipelink.Insights",
@@ -136,35 +136,35 @@
           "dependencies": {
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[9.0.0, )"
             },
             "OpenTelemetry": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.11.2, )"
             },
             "OpenTelemetry.Api": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.11.2, )"
             },
             "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.11.2, )"
             },
             "OpenTelemetry.Extensions.Hosting": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.11.2, )"
             },
             "OpenTelemetry.Instrumentation.AspNetCore": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.11.1, )"
             },
             "OpenTelemetry.Instrumentation.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[1.0.0-beta.10, )"
+              "version": "[1.0.0-beta.7, )"
             },
             "OpenTelemetry.Instrumentation.Http": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.11.1, )"
             },
             "OpenTelemetry.Instrumentation.SqlClient": {
               "target": "Package",
