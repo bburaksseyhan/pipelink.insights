@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Pipelink.Insights.Api.props" />
+</Project>

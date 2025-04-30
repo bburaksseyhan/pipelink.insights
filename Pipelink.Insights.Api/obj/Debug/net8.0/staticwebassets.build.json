@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "PTtG5Iod+GreHdCCFc2t+Ml3ZgExOjEveAAayHANHDY=",
+  "Source": "Pipelink.Insights.Api",
+  "BasePath": "_content/Pipelink.Insights.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

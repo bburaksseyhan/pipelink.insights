@@ -1,0 +1,12 @@
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/bin/Debug/net6.0/Pipelink.Insights.deps.json
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/bin/Debug/net6.0/Pipelink.Insights.dll
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/bin/Debug/net6.0/Pipelink.Insights.pdb
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/obj/Debug/net6.0/Pipelink.Insights.csproj.AssemblyReference.cache
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/obj/Debug/net6.0/Pipelink.Insights.GeneratedMSBuildEditorConfig.editorconfig
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/obj/Debug/net6.0/Pipelink.Insights.AssemblyInfoInputs.cache
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/obj/Debug/net6.0/Pipelink.Insights.AssemblyInfo.cs
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/obj/Debug/net6.0/Pipelink.Insights.csproj.CoreCompileInputs.cache
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/obj/Debug/net6.0/Pipelink.Insights.dll
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/obj/Debug/net6.0/refint/Pipelink.Insights.dll
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/obj/Debug/net6.0/Pipelink.Insights.pdb
+/Users/seyhanb/Documents/GitHub/pipelink.insights/Pipelink.Insights/obj/Debug/net6.0/ref/Pipelink.Insights.dll
